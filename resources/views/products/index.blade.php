@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.top')
 
 @section('content')
 <div class="container">
@@ -23,9 +23,9 @@
             <div class="row mt-4">
         @endif
         
-        <div class="col">
+        <div class="col-md-3">
             <div class="card"> 
-                <img src="{{ asset('image_files/'.$product->image_url) }}" class="card-img-top" alt="...">
+                <img src="{{ asset('image_files/'.$product->image_url) }}" class="card-img-top" alt="..." width="150px" height="150px">
                 <div class="card-body">
                     <h5 class="card-title">
                         <a href="{{ route('products.show', ['id' => $product->id]) }}">
@@ -35,7 +35,7 @@
                     <p class="card-text">
                         {{ $product->price }}
                     </p>
-                    <a href="{{ route('carts.add', ['id' => $product->id]) }}" class="btn btn-primary">Beli</a>
+                    <a href="{{ route('carts.add', ['id' => $product->id]) }}" class="btn btn-danger">Beli</a>
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                         '<p class="card-text">'+
                         product.price+
                         '</p>'+
-                        '<a href="/carts/add'+product.id+'" class="btn btn-primary">Beli</a>'+
+                        '<a href="/carts/add'+product.id+'" class="btn btn-danger">Beli</a>'+
                     '</div>'+
                 '</div>'+
             '</div>';

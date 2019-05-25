@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.top')
 
 @section('content')
 
@@ -31,7 +31,7 @@
 					<label>Kode Pos</label>
 					<input type="number" name="zip_code" class="form-control" placeholder="Kode Pos">
 				</div>
-				<button type="submit" class="btn btn-primary">Simpan</button>
+				<button type="submit" class="btn btn-danger">Simpan</button>
 				</form>
 			</div>
 		</div>

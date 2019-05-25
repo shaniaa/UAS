@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.top')
 
 @section('content')
 <div class="container">
@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="col">
 					<h2>
-						<span class="badge badge-primary">Alamat Pengiriman</span>
+						<span class="badge badge-danger">Alamat Pengiriman</span>
 					</h2>
 					<p>
 						{{ $order->shipping_address }}
@@ -17,7 +17,7 @@
 				<div class="row">
 					<div class="col">
 						<h2>
-							<span class="badge badge-primary">Kode Pos</span>
+							<span class="badge badge-danger">Kode Pos</span>
 						</h2>
 						<p>
 							{{ $order->zip_code }}
@@ -27,7 +27,7 @@
 				<div class="row">
 					<div class="col">
 						<h2>
-							<span class="badge badge-primary">Harga Total</span>
+							<span class="badge badge-danger">Harga Total</span>
 						</h2>
 						<p>
 							{{ $order->total_price }}

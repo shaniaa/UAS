@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.top')
 
 @section('content')
 <div class="container">
@@ -38,8 +38,8 @@
 					<label>Image</label>
 					<input type="file" name="image_url" class="form-control" value="{{$products->image_url}}">
 				</div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('admin.products.index') }}" class="btn btn-primary">Back</a>
+                <button type="submit" class="btn btn-danger">Submit</button>
+                <a href="{{ route('admin.products.index') }}" class="btn btn-danger">Back</a>
             </form>        
         </div>
     </div>

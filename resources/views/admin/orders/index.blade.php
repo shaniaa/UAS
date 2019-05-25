@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.top')
 
 @section('content')
 <div class="container">
@@ -6,7 +6,7 @@
 		<div class="col">
 			<h2>List Order</h2>
 			<div>
-				<a href="{{ route('admin.products.create')}}" class="btn-btn primary">Tambah Produk</a>
+				<a href="{{ route('admin.products.create')}}" class="btn-btn danger">Tambah Produk</a>
 			</div>
 			<br/>
 			<div class="table-responsive">

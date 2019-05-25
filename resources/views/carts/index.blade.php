@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.top')
 
 @section('content')
 <div class="container">
@@ -36,8 +36,8 @@
             <input type="number" value="{{ $product['quantity'] }}" class="form-control quantity" />
         </td>
         <td data-th="Subtotal" class="text-center">${{ $product['price'] * $product['quantity'] }}</td>
-        <td class="actions" data-th="">
-            <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}">Update</button>
+        <td class="action" data-th="">
+            <button class="btn btn-info btn-sm mt-2 update-cart" data-id="{{ $id }}">Update</button>
             <button class="btn btn-danger btn-sm mt-2 remove-from-cart" data-id="{{ $id }}">Remove</button>
         </td>
         </tr>
@@ -50,50 +50,14 @@
         </tr>
         <tr>
             <td>
-            <a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>Lanjutkan Belanja</a>
-            <a href="{{ route('admin.orders.create') }}" class="btn btn-primary"><i class="fa fa-angel-left">Lanjut ke Pembayaran</i></a>
+            <a href="{{ url('/products') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>Lanjutkan Belanja</a>
+            <a href="{{ route('admin.orders.create') }}" class="btn btn-danger"><i class="fa fa-angel-left">Lanjut ke Pembayaran</i></a>
             </td>
             <td colspan="2" class="hidden-xs"></td>
             <td class="hidden-xs text-center"><strong>Total ${{ $total }}</strong></td>
         </tr>
         </tfoot>
     </table>
-
 </div>
 
-<!-- Jquery -->
-<script> src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".update-cart").click(function (e){
-            e.preventDefault();
-            console.log('aaaa');
-            var ele = $(this);
-
-            $.ajax({
-                url: '{{ route('carts.update') }}',
-                method: "patch",
-                data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()}, success: function (response) {
-                    window.location.reload();
-                }
-            });
-        });
-
-        $(".remove-from-cart").click(function (e) {
-            e.preventDefault();
-
-            var ele = $(this);
-
-            if(confirm("Are you sure")) {
-                $.ajax({
-                    url: '{{ route('carts.remove') }}',
-                    method: "DELETE",
-                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")}, success: function (response) {
-                        window.location.reload();
-                    }
-                });
-            }
-        });
-    });
-</script>
 @endsection
